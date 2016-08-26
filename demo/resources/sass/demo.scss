@@ -1,0 +1,204 @@
+@function px2rem($px, $base: 75)
+{
+    @return ($px / $base) * 1rem;
+}
+
+@mixin font-dpr($font-size)
+{
+    font-size: $font-size;
+    [data-dpr='2'] &
+    {
+        font-size: $font-size * 2;
+    }
+    [data-dpr='3'] &
+    {
+        font-size: $font-size *3;
+    }
+}
+
+
+// style
+*
+{
+    margin: 0;
+    padding: 0;
+}
+html
+{
+    box-sizing: border-box;
+    height: 100%;
+}
+body
+{
+    overflow-y: auto;
+
+    max-width: 10rem;
+    height: 100%;
+    margin: 0 auto;
+
+    background-color: #f5294c;
+}
+a
+{
+    &:hover
+    {
+        text-decoration: none;
+    }
+}
+ul
+{
+    list-style: none;
+}
+
+.ft_11
+{
+    @include font-dpr(11px);
+}
+.ft_12
+{
+    @include font-dpr(12px);
+}
+.ft_14
+{
+    @include font-dpr(14px);
+}
+.ft_16
+{
+    @include font-dpr(16px);
+}
+
+.item_section
+{
+    position: relative;
+
+    min-height: 100%;
+
+    background-color: #ee0a3b;
+    .item_section_header
+    {
+        text-align: center;
+    }
+    ul
+    {
+        padding: px2rem(10);
+    }
+}
+.flag
+{
+    display: table;
+
+    width: 100%;
+    margin-bottom: 1px;
+
+    background-color: #fff;
+    .flag_item
+    {
+        display: table-cell;
+
+        padding: px2rem(12) 0;
+
+        vertical-align: top;
+
+        background-color: #fff;
+    }
+    .figure
+    {
+        width: px2rem(180);
+        height: px2rem(180);
+        img
+        {
+            width: px2rem(180);
+            height: px2rem(180);
+
+            vertical-align: top;
+        }
+    }
+    .figcaption
+    {
+        position: relative;
+
+        width: px2rem(520);
+        padding: px2rem(12) px2rem(15);
+    }
+}
+.figcaption
+{
+    .flag_title
+    {
+        a
+        {
+            line-height: 1.25;
+
+            display: box;
+            overflow: hidden;
+
+            color: #333;
+
+            box-orient: vertical;
+            line-clamp: 2;
+        }
+    }
+    .flag_price
+    {
+        padding: px2rem(12) 0 px2rem(15);
+        span
+        {
+            font-weight: 700;
+
+            display: inline-block;
+
+            margin-right: px2rem(5);
+            padding: px2rem(2) px2rem(6) px2rem(1);
+
+            vertical-align: middle;
+
+            color: #fff;
+            border-radius: px2rem(2);
+            background-color: #ee0a3b;
+        }
+        strong
+        {
+            font-weight: 700;
+
+            display: inline-block;
+
+            margin-right: px2rem(12);
+
+            vertical-align: middle;
+
+            color: #ee0a3b;
+        }
+        small
+        {
+            font-weight: 700;
+
+            display: inline-block;
+
+            vertical-align: middle;
+
+            color: #ee0a3b;
+        }
+    }
+    .flag_type
+    {
+        color: #ff3600;
+    }
+    .flag_btn
+    {
+        font-weight: 700;
+        line-height: px2rem(48);
+
+        position: absolute;
+        right: px2rem(15);
+        bottom: px2rem(10);
+
+        width: px2rem(160);
+        height: px2rem(48);
+
+        text-align: center;
+
+        color: #fff;
+        border-radius: px2rem(2);
+        background-color: #ee0a3b;
+    }
+}
